@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window caption="0,0,0,30" roundcorner="5,5,5,5" sizebox="4,4,4,4" size="600,430" mininfo="600,430" bktrans="true">
+ <Font name="微软雅黑" size="13" bold="true"/>
+ <Font name="宋体" size="12"/>
+ <Font name="隶书" size="16"/>
+<Default name="VScrollBar" value="button1normalimage=&quot;file='scroll.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scroll.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='scroll.png' source='0,16,16,32' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='scroll.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='scroll.png' source='0,48,16,64' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;ffile='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='scroll.png' source='0,96,16,112' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+<VerticalLayout bkimage="file='SignTool-bg.png' corner='10,100,10,10' ">
+	<HorizontalLayout height="37" inset="0,2,0,0">
+		<VerticalLayout>
+			<Text bkimage="file='zzlogo.png'" float="true" pos="5,2,29,26"></Text>
+			<Text text="中正软件---PE签名工具" textcolor="#FFFFFFFF" font="2" float="true" pos="33,6,230,30" ></Text>
+		</VerticalLayout>
+		<VerticalLayout width="70">
+			<Button float="true" pos="0,0,28,17" name="minbtn" maxwidth="28" maxheight="17" normalimage="file='max_min.png' source='0,0,28,17'" hotimage="file='max_min_h.png' source='0,0,28,17'" pushedimage="file='max_min_h.png' source='0,0,28,17'"/>
+			<Button float="true" pos="28,0,56,17" name="closebtn" maxwidth="28" maxheight="17" normalimage="file='max_min.png' source='28,0,56,17'" hotimage="file='max_min_h.png' source='28,0,56,17'" pushedimage="file='max_min_h.png' source='28,0,56,17'"/>
+		</VerticalLayout>
+	</HorizontalLayout>
+		
+	<!--  选择 签名方式-->
+	<HorizontalLayout height="35" inset="0,4,0,8" name="ChoseTab">
+		<!-- 选择下拉列表-->
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="证书来源:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="260">
+			<Combo inset="8,2,2,2" droptype="droplist" name="SignChoice" normalimage="file='Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Combo_over.bmp' corner='2,2,24,2'" textpadding="4,1,1,1" >
+			</Combo>
+		</VerticalLayout>
+	</HorizontalLayout>
+
+	<!---签名容器签名 -->
+	<HorizontalLayout height="35" inset="0,4,0,8" name="cerstoreTab" visible="true">
+		<!-- 容器下拉列表-->
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="选择证书:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="260">
+			<Combo inset="8,2,2,2" name="CertListData" normalimage="file='Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Combo_over.bmp' corner='2,2,24,2'" textpadding="1,1,1,1">
+			</Combo>
+		</VerticalLayout>
+	</HorizontalLayout>
+	
+	<!--pfx签名-->
+	<HorizontalLayout height="35" inset="0,4,0,8" name="pfxsignTab" visible="false">
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="匙包文件:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="180">
+			<Edit height="23" text="文件签名的证书，pfx格式" bordercolor="#C6CFD8" name="inputpfx" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'" readonly="true"/>
+		</VerticalLayout>
+		<VerticalLayout width="80">
+			<Button name="btnPfx" text="浏览" font="0" float="true" pos="5,0,63,23" maxwidth="63" maxheight="23" normalimage="file='button.png' source='0,0,63,23'" hotimage="file='button.png' source='0,23,63,46'" pushedimage="file='button.png' source='0,23,63,46'"/>
+		</VerticalLayout>
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="匙包密钥:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="150">
+			<Edit height="23" text="文件签名的证书私钥密码" bordercolor="#C6CFD8" name="inputpfxpass" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'" readonly="false"/>
+		</VerticalLayout>
+	</HorizontalLayout>
+
+		<!---签名CSP签名 -->
+	<HorizontalLayout height="35" inset="0,4,0,8" name="cspstoreTab" visible="false">
+		<!-- CSP下拉列表-->
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="选择CSP:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="260">
+			<Combo inset="8,2,2,2" name="CSPListData" normalimage="file='Combo_nor.bmp' corner='2,2,24,2'" hotimage="file='Combo_over.bmp' corner='2,2,24,2'" pushedimage="file='Combo_over.bmp' corner='2,2,24,2'" textpadding="1,1,1,1">
+			</Combo>
+		</VerticalLayout>
+	</HorizontalLayout>
+
+	<HorizontalLayout height="35" >
+		<!--<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="SignTool:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="180">
+			<Edit height="23" text="签名工具signtool.exe路径" bordercolor="#C6CFD8" name="inputsigntool" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'" readonly="true"/>
+		</VerticalLayout>
+		<VerticalLayout width="80">
+			<Button name="btnSignPath" text="浏览" font="0" float="true" pos="5,0,63,23" maxwidth="63" maxheight="23" normalimage="file='button.png' source='0,0,63,23'" hotimage="file='button.png' source='0,23,63,46'" pushedimage="file='button.png' source='0,23,63,46'"/>
+		</VerticalLayout>
+		-->
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="RFC3161:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="244">
+			<Edit height="23" text="SHA256时间戳的WEB地址" bordercolor="#C6CFD8" name="inputSha256Time" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'" readonly="false"/>
+		</VerticalLayout>
+		<VerticalLayout width="16" />
+		
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="签名描述:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="150">
+			<Edit height="23" text="签名程序描述" bordercolor="#C6CFD8" name="inputDscrption" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'" readonly="false"/>
+		</VerticalLayout>
+	</HorizontalLayout>
+
+	<HorizontalLayout height="35" >
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="时间戳:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="244">
+			<Edit height="23" text="时间戳的WEB地址" bordercolor="#C6CFD8" name="inputTimeURL" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'" readonly="false"/>
+		</VerticalLayout>
+		<VerticalLayout width="16" />
+
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="签名URL:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="150">
+			<Edit height="23" text="签名数据中URL地址" bordercolor="#C6CFD8" name="inputURL" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'" readonly="false"/>
+		</VerticalLayout>
+	</HorizontalLayout>
+
+	<HorizontalLayout height="35" >
+		<VerticalLayout inset="8,2,2,2" width="80">
+			<Text text="待签目录:" textcolor="#000000" font="0"></Text>
+		</VerticalLayout>
+		<VerticalLayout width="180">
+			<Edit height="23" text="待签名程序目录路径" bordercolor="#C6CFD8" name="inputDir" bkimage="file='search_bg.png' source='0,0,258,23' corner='1,1,1,1'" readonly="true"/>
+		</VerticalLayout>
+		<VerticalLayout width="80">
+			<Button name="btnDir" text="浏览" font="0" float="true" pos="5,0,63,23" maxwidth="63" maxheight="23" normalimage="file='button.png' source='0,0,63,23'" hotimage="file='button.png' source='0,23,63,46'" pushedimage="file='button.png' source='0,23,63,46'"/>
+		</VerticalLayout>
+		<VerticalLayout inset="8,2,2,2" width="90">
+			<Button name="btnSave" text="保存以上配置" font="0" float="true" pos="5,0,90,23" maxwidth="63" maxheight="23" normalimage="file='button.png' source='0,0,90,23'" hotimage="file='button.png' source='0,23,90,46'" pushedimage="file='button.png' source='0,23,63,46'"/>
+		</VerticalLayout>
+		<VerticalLayout inset="8,2,2,2" width="100">
+			<Text text="配置更改后必须保存后方可签名" textcolor="#000000" font="1"></Text>
+		</VerticalLayout>
+		<VerticalLayout inset="8,2,2,2" width="90">
+			<Button name="btnSign" text="开始签名" font="0" float="true" pos="5,0,63,23" maxwidth="63" maxheight="23" normalimage="file='button.png' source='0,0,63,23'" hotimage="file='button.png' source='0,23,63,46'" pushedimage="file='button.png' source='0,23,63,46'"/>
+		</VerticalLayout>
+		
+	</HorizontalLayout>
+
+	<HorizontalLayout inset="6,0,6,3">
+		<List name="domainlist" bkcolor="#FFFFFFFF" inset="0,0,0,0" itemshowhtml="true" vscrollbar="true" hscrollbar="true" headerbkimage="file='list_header_bg.png'" itemalign="center" itembkcolor="#FFE2DDDF" itemaltbk="true" hscrollbar="false" menu="true">
+			<ListHeader height="20" menu="true">
+				<ListHeaderItem text="文件名" font="1" width="260" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+				<ListHeaderItem text="是否签名" font="1" width="120" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+				<ListHeaderItem text="签名状态" font="1" width="220" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+			</ListHeader>
+		</List>
+	</HorizontalLayout>
+</VerticalLayout>
+</Window>
